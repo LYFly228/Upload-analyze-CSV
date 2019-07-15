@@ -37,12 +37,14 @@ public class FileController {
         if (mf.isEmpty()) {
             return false;
         }
-        File file = File.createTempFile("temp_inpour_file",".csv");
-        InputStream inputStream = mf.getInputStream();
+        File file = File.createTempFile(System.currentTimeMillis() + "",".csv");
+        mf.transferTo(file);
+
+        /*InputStream inputStream = mf.getInputStream();
         byte[] bytes = IOUtils.toByteArray(inputStream);
         FileOutputStream out = new FileOutputStream(file);
         out.write(bytes);
-        out.close();
+        out.close();*/
         CsvReader reader = CsvUtil.getReader();
         CsvData read = reader.read(file, CharsetUtil.CHARSET_GBK);
         List<CsvRow> rows = read.getRows();
