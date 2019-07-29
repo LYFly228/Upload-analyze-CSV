@@ -12,4 +12,4 @@ ALTER TABLE `guoke-deepexi-product-center`.`pc_association_certificate` ADD COLU
 
 ALTER TABLE `guoke-deepexi-product-center`.`pc_association_certificate` ADD COLUMN `updated_at` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'updatedAt' AFTER `modifier_id`;
 
-ALTER TABLE `guoke-deepexi-product-center`.`pc_association_certificate` MODIFY COLUMN `dr` tinyint(1) NULL DEFAULT 0 COMMENT '删除标记  0 --存在   1 --已删除' AFTER `updated_at`;
+ALTER TABLE `guoke-deepexi-product-center`.`pc_association_certificate` ADD COLUMN `dr` tinyint(1) NULL DEFAULT 0 COMMENT '删除标记  0 --存在   1 --已删除' AFTER `updated_at`;
